@@ -10,10 +10,10 @@ import Spring
 class ViewController: UIViewController {
     
     private var listAnimations = Animation.getAnimationList()
-
+    
     @IBOutlet var springAnimationView: SpringView!
     @IBOutlet var labelAnimationView: UILabel!
-
+    
     
     override func viewDidLoad() {
         labelAnimationView.text = """
@@ -23,14 +23,13 @@ class ViewController: UIViewController {
                                 Duration: \(listAnimations.duration)
                                 Delay: \(listAnimations.delay)
                                 """
+        
         super.viewDidLoad()
-       // labelAnimationView.text = Spring
-        // Do any additional setup after loading the view.
+       
     }
-
-
+    
     @IBAction func RunSpringButton(_ sender: SpringButton) {
-     
+        
         springAnimationView.animation = listAnimations.present
         springAnimationView.curve = listAnimations.curve
         springAnimationView.force = CGFloat(listAnimations.forse)
@@ -38,7 +37,7 @@ class ViewController: UIViewController {
         springAnimationView.delay = CGFloat(listAnimations.delay)
         listAnimations = Animation.getAnimationList()
         springAnimationView.animate()
-     
+        
         labelAnimationView.text = """
                                 Name: \(listAnimations.present)
                                 Curve: \(listAnimations.curve)
@@ -47,21 +46,7 @@ class ViewController: UIViewController {
                                 Delay: \(listAnimations.delay)
                                 """
         sender.setTitle("Run: \(listAnimations.present)", for: .normal)
-        
 
-
-        
-        
-        
-        
-//        springAnimationView.animation = "pop"
-//        springAnimationView.curve = "easeInOut"
-//        springAnimationView.force = 2
-//        springAnimationView.duration = 1
-//        springAnimationView.delay = 0.3
-
- 
-       // sender.animate()
     }
 }
 
