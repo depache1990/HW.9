@@ -23,11 +23,11 @@ struct Animation {
 extension Animation {
     static func getAnimationList() -> Animation {
        Animation(
-        present: DataManager.shared.animations.randomElement()?.rawValue ?? "shake",
-        curve: DataManager.shared.curve.randomElement()?.rawValue ?? "easeIn",
+        present: DataManager.shared.animations.randomElement()?.rawValue ?? "",
+        curve: DataManager.shared.curve.randomElement()?.rawValue ?? "",
         forse: Float.random(in: 1...2),
         duration: Float.random(in: 1...2),
-        delay: Float.random(in: 1...2)
+        delay: 0.3
        )
     }
     
