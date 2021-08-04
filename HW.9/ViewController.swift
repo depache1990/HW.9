@@ -9,7 +9,7 @@ import Spring
 
 class ViewController: UIViewController {
     
-    private let listAnimations = Animation.getAnimationList()
+    private var listAnimations = Animation.getAnimationList()
 
     @IBOutlet var springAnimationView: SpringView!
     @IBOutlet var labelAnimationView: UILabel!
@@ -36,9 +36,20 @@ class ViewController: UIViewController {
         springAnimationView.force = CGFloat(listAnimations.forse)
         springAnimationView.duration = CGFloat(listAnimations.duration)
         springAnimationView.delay = CGFloat(listAnimations.delay)
+        listAnimations = Animation.getAnimationList()
         springAnimationView.animate()
      
+        labelAnimationView.text = """
+                                Name: \(listAnimations.present)
+                                Curve: \(listAnimations.curve)
+                                Force: \(listAnimations.forse)
+                                Duration: \(listAnimations.duration)
+                                Delay: \(listAnimations.delay)
+                                """
+        sender.setTitle("Run: \(listAnimations.present)", for: .normal)
         
+
+
         
         
         
